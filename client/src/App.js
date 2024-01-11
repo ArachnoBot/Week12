@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <form method='POST' action='/api/book/'>
+      <form method='POST' action='/api/book'>
         <input type='text' id ="name"></input>
         <input type='text' id ="author"></input>
         <input type='number' id ="pages"></input>

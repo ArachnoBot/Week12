@@ -15,7 +15,7 @@ const BookSchema = mongoose.Schema({
 const Books = mongoose.model("Books", BookSchema)
 
 
-router.post('/api/book/', function(req, res, next) {
+router.post('/api/book', function(req, res, next) {
   Books.create({
     name: req.body.name,
     author: req.body.author,

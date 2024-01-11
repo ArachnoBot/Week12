@@ -4,7 +4,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require("cors")
 
-
 var indexRouter = require('./routes/index');
 
 var app = express();
@@ -17,11 +16,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
+app.use(cors({origin: "http://localhost:1234", optionsSuccessStatus: 200}))
 
-const opt = {
-  origin: "http://localhost:3000",
-  optionSuccessStatus: 200
-}
-app.use(cors(opt))
+
 
 module.exports = app;

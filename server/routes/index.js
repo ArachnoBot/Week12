@@ -19,11 +19,13 @@ router.post('/api/book', async (req, res, next) => {
 
   console.log("1 if connected: ", db.readyState)
 
-  Books.create({
+  const newBook = new Books({
     name: req.body.name,
     author: req.body.author,
     pages: req.body.pages
   })
+
+  newBook.save()
 
   const collections = await db.db.listCollections().toArray()
   const collectionNames = collections.map(collection => collection.name);

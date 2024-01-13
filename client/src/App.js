@@ -16,13 +16,6 @@ function App() {
     const author = document.getElementById("author")
     const pages = document.getElementById("pages")
 
-    fetch("/api/getBooks")
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      return data
-    })
-
     fetch("/api/book", {
       method: "POST",
       headers: {
@@ -34,14 +27,6 @@ function App() {
         pages: pages.value
       })
     })
-
-    fetch("/api/getBooks")
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      return data
-    })
-
   }
 
   return (

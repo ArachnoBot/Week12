@@ -17,7 +17,7 @@ const Books = mongoose.model("Books", BookSchema)
 router.post('/api/book', async (req, res, next) => {
   console.log("works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
-  const newBook = new Book({
+  const newBook = new Books({
     name: req.body.name,
     author: req.body.author,
     pages: req.body.pages

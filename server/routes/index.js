@@ -25,7 +25,7 @@ router.post('/api/book', async (req, res, next) => {
     pages: req.body.pages
   })
 
-  newBook.save()
+  await newBook.save()
 
   const collections = await db.db.listCollections().toArray()
   const collectionNames = collections.map(collection => collection.name);

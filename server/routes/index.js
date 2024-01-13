@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb://127.0.0.1:27017/bookdb")
+mongoose.connect("mongodb://localhost:27017/bookdb")
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
@@ -21,12 +21,6 @@ router.post('/api/book', async (req, res, next) => {
     name: req.body.name,
     author: req.body.author,
     pages: req.body.pages
-  }, (error, createdBook) => {
-    if (error) {
-      console.error('Error creating book:', error);
-    } else {
-      console.log('Book created successfully:', createdBook);
-    }
   })
 
   let books = await Books.find()

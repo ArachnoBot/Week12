@@ -16,7 +16,14 @@ function App() {
     const author = document.getElementById("author")
     const pages = document.getElementById("pages")
 
-    await fetch("/api/book", {
+    fetch("/api/getBooks")
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      return data
+    })
+
+    fetch("/api/book", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -34,6 +41,7 @@ function App() {
       console.log(data)
       return data
     })
+
   }
 
   return (

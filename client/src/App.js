@@ -25,6 +25,7 @@ function App() {
         <br></br>
         <input type='submit' id="submit" name="submit"></input>
       </form>
+      <input type="button" value="get books" onClick={fetchBooks}></input>
     </div>
   );
 }

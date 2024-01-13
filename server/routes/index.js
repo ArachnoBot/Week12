@@ -25,9 +25,13 @@ router.post('/api/book', async (req, res, next) => {
     pages: req.body.pages
   })
 
-  const stuff = await db.db.listCollections().toArray()
-  const collectionNames = stuff.map(collection => collection.name);
+  const collections = await db.db.listCollections().toArray()
+  const collectionNames = collections.map(collection => collection.name);
   console.log(collectionNames)
+
+
+  const stuff = await Books.find()
+  console.log(stuff)
 
   res.sendStatus(201)
 });

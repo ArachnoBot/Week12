@@ -20,7 +20,7 @@ router.post('/api/book', function(req, res, next) {
     author: req.body.author,
     pages: req.body.pages
   })
-  res.send(req.body)
+  res.sendStatus(200)
 });
 
 router.get('/api/getBooks', async function(req, res, next) {

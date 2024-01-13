@@ -16,11 +16,13 @@ const Books = mongoose.model("Books", BookSchema)
 
 router.post('/api/book', function(req, res, next) {
   console.log("works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+  console.log(Books.find())
   Books.create({
     name: req.body.name,
     author: req.body.author,
     pages: req.body.pages
   })
+  console.log(Books.find())
   res.sendStatus(200)
 });
 

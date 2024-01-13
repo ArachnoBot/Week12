@@ -25,20 +25,19 @@ router.post('/api/book', async (req, res, next) => {
     pages: req.body.pages
   })
 
-  let books = await Books.find()
-  //console.log(books)
   const stuff = await db.db.listCollections().toArray()
   const collectionNames = stuff.map(collection => collection.name);
   console.log(collectionNames)
-  
-  books = await Books.find()
-  //console.log(books)
-  res.send(req.body)
+
+  res.sendStatus(201)
 });
 
 router.get('/api/getBooks', async function(req, res, next) {
   const books = await Books.find({})
+  console.log(books)
   res.send(books);
 });
+
+
 
 module.exports = router;

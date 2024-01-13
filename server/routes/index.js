@@ -33,7 +33,7 @@ router.post('/api/book', async (req, res, next) => {
   
   books = await Books.find()
   //console.log(books)
-  res.sendStatus(200)
+  res.send(req.body)
 });
 
 router.get('/api/getBooks', async function(req, res, next) {

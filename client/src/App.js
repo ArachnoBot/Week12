@@ -26,6 +26,7 @@ function App() {
         pages: pages.value
       })
     })
+    .then(fetchBooks)
   }
 
   return (

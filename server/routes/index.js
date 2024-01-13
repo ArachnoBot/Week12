@@ -15,15 +15,19 @@ const BookSchema = mongoose.Schema({
 const Books = mongoose.model("Books", BookSchema)
 
 router.post('/api/book', async (req, res, next) => {
-  console.log("works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+  console.log("???????????????????????????????????????????????")
 
-  const newBook = new Books({
+  Books.create({
     name: req.body.name,
     author: req.body.author,
     pages: req.body.pages
+  }, (error, createdBook) => {
+    if (error) {
+      console.error('Error creating book:', error);
+    } else {
+      console.log('Book created successfully:', createdBook);
+    }
   })
-  
-  newBook.save()
 
   let books = await Books.find()
   //console.log(books)

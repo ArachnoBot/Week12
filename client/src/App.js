@@ -7,15 +7,16 @@ function App() {
     .then(response => response.json())
     .then(data => {
       console.log(data)
+      return data
     })
   }
 
-  const addBook = () => {
+  const addBook = async () => {
     const name = document.getElementById("name")
     const author = document.getElementById("author")
     const pages = document.getElementById("pages")
 
-    fetch("/api/book", {
+    await fetch("/api/book", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -26,7 +27,13 @@ function App() {
         pages: pages.value
       })
     })
-    .then(fetchBooks)
+
+    fetch("/api/getBooks")
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      return data
+    })
   }
 
   return (

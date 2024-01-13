@@ -2,6 +2,7 @@
   "name": "server",
   "version": "0.0.0",
   "private": true,
+  "proxy": "http://localhost:3000",
   "scripts": {
     "dev": "node ./bin/www",
     "start": "node ./bin/www"

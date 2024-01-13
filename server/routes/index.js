@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb://localhost:27017/bookdb")
+mongoose.connect("mongodb://127.0.0.1:27017/bookdb")
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
@@ -16,6 +16,8 @@ const Books = mongoose.model("Books", BookSchema)
 
 router.post('/api/book', async (req, res, next) => {
   console.log("???????????????????????????????????????????????")
+
+  console.log("1 if connected: ", db.readyState)
 
   Books.create({
     name: req.body.name,

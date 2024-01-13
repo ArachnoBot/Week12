@@ -14,15 +14,17 @@ const BookSchema = mongoose.Schema({
 
 const Books = mongoose.model("Books", BookSchema)
 
-router.post('/api/book', function(req, res, next) {
+router.post('/api/book', async (req, res, next) => {
   console.log("works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-  console.log(Books.find())
-  Books.create({
+  let books = await Books.find()
+  console.log(books)
+  await Books.create({
     name: req.body.name,
     author: req.body.author,
     pages: req.body.pages
   })
-  console.log(Books.find())
+  books = await Books.find()
+  console.log(books)
   res.sendStatus(200)
 });
 

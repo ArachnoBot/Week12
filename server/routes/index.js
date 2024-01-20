@@ -15,8 +15,6 @@ const BookSchema = mongoose.Schema({
 const Books = mongoose.model("Books", BookSchema)
 
 router.post('/api/book', async (req, res, next) => {
-  console.log("???????????????????????????????????????????????")
-
   console.log("1 if connected: ", db.readyState)
 
   const newBook = new Books({
@@ -35,7 +33,7 @@ router.post('/api/book', async (req, res, next) => {
   const stuff = await Books.find()
   console.log(stuff)
 
-  res.sendStatus(201)
+  res.sendStatus(200)
 });
 
 router.get('/api/getBooks', async function(req, res, next) {
